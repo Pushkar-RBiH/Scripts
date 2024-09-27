@@ -1,0 +1,80 @@
+# //*satsure multiland */
+CREATE TABLE satsure_multiland (
+    id text PRIMARY KEY,
+    synccorrelationid text,
+    asynccorrelationid text,
+    referenceid text,
+	ssreportdoc text,
+	clientid text,
+	txncode text,
+	lendertimestamp text,
+	logstrace text,
+	createdby text,
+	createdon text,
+	modifiedby text,
+    modifiedon text,
+    jwttoken text,
+    txnstatus text
+);
+
+/cubictree/
+
+CREATE TABLE IF NOT EXISTS cubictree (
+id UUID PRIMARY KEY,
+  assignmentno TEXT,
+  action TEXT,
+  clientid TEXT,
+  serviceid TEXT,
+  filenameloanidno TEXT,
+  servicetype TEXT,
+  systemid TEXT,
+  remark TEXT,
+  filename TEXT,
+  filebase64 TEXT,
+  status TEXT,
+  txncode TEXT,
+  logstrace TEXT,
+  createdby TEXT,
+  createdon TEXT,
+  modifiedby TEXT,
+  modifiedon TEXT,
+  message TEXT,
+jwttoken TEXT
+);
+
+//callback url
+INSERT INTO lender_callback_info (lendercallbackurl, customheaders, clientid, servicename, type, created_by, created_on)
+    VALUES (
+        'https://pizzapuff.requestcatcher.com/',
+        {'Header1': 'Value1', 'Header2': 'Value2'},
+        'MDRtbTVpREhrZHpGbHZGalpXOGZ6Q2QwU1g0YQ==',
+        'propsearchcubictree',
+        'TypeValue',
+        'Parth Pushkar',
+        toTimestamp(now())
+    );
+
+//callback lienmarking
+INSERT INTO lender_callback_info (lendercallbackurl, customheaders, clientid, servicename, type, created_by, created_on)
+    VALUES (
+        'https://pizzapuff.requestcatcher.com/',
+        {'Header1': 'Value1', 'Header2': 'Value2'},
+        'MDRtbTVpREhrZHpGbHZGalpXOGZ6Q2QwU1g0YQ==',
+        'lienmarking',
+        'TypeValue',
+        'Parth Pushkar',
+        toTimestamp(now())
+    );
+
+//callback satsure_multiland
+
+INSERT INTO lender_callback_info (lendercallbackurl, customheaders, clientid, servicename, type, created_by, created_on)
+    VALUES (
+        'https://pizzapuff.requestcatcher.com/',
+        {'Header1': 'Value1', 'Header2': 'Value2'},
+        'MDRtbTVpREhrZHpGbHZGalpXOGZ6Q2QwU1g0YQ==',
+        'satsure_multiland',
+        'TypeValue',
+        'Parth Pushkar',
+        toTimestamp(now())
+    );
